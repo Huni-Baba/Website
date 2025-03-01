@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Game Development Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        code {
+            background: #f8f9fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🐍 Learn Python Basics in 1 Hour! Build a Number Guessing Game</h1>
+        <p>Build a Number Guessing Game with Python</p>
+
+        <!-- Navigation Buttons -->
+        <div class="nav">
+            <button onclick="showSection('intro')">Introduction</button>
+            <button onclick="showSection('setup')">1. VS Code Setup</button>
+            <button onclick="showSection('variables')">2. Variables & Input</button>
+            <button onclick="showSection('conditionals')">3. Conditionals</button>
+            <button onclick="showSection('loops')">4. Loops</button>
+            <button onclick="showSection('random')">5. Random Numbers</button>
+            <button onclick="showSection('debug')">6. Debugging in VS Code</button>
+            <button onclick="showSection('final')">7. Final Game</button>
+        </div>
+
+        <!-- Section 0: Introduction -->
+        <div id="intro" class="section active">
+            <h2>Introduction</h2>
+            <p>Welcome to the Python Game Development Course! In this course, you will learn the basics of Python
+                programming by building a fun and interactive number guessing game. Whether you're a beginner or looking
+                to refresh your skills, this course is designed to help you understand Python concepts in a practical
+                way.</p>
+            <p>By the end of this course, you will:</p>
+            <ul>
+                <li>Understand Python basics like variables, conditionals, and loops.</li>
+                <li>Learn how to use Python libraries like <code>random</code>.</li>
+                <li>Build a complete number guessing game from scratch.</li>
+                <li>Gain experience debugging code using Visual Studio Code.</li>
+            </ul>
+            <p>Let's get started!</p>
+        </div>
+
+        <!-- Section 1: VS Code Setup -->
+        <div id="setup" class="section">
+            <h2>1. Install Python & VS Code</h2>
+            <h3>Step 1: Install Python</h3>
+            <ul>
+                <li>Download Python from <a href="https://python.org" target="_blank">python.org</a>.</li>
+                <li>Check installation: Open Terminal and run <code>python --version</code>.</li>
+            </ul>
+
+            <h3>Step 2: Set Up VS Code</h3>
+            <ul>
+                <li>Install <a href="https://code.visualstudio.com" target="_blank">VS Code</a>.</li>
+                <li>Install the Python extension: Search for "Python" in Extensions (Ctrl+Shift+X).</li>
+                <li>Create a project folder and a <code>game.py</code> file.</li>
+            </ul>
+        </div>
+
+        <!-- Section 2: Variables & Input -->
+        <div id="variables" class="section">
+            <h2>2. Variables & User Input</h2>
+            <pre><code># Store player name
+player_name = input("What's your name? ")
+print(f"Welcome, {player_name}!")</code></pre>
+            <p><strong>VS Code Tip:</strong> Use <code>Ctrl+S</code> to save and <code>F5</code> to run your code.</p>
+        </div>
+
+        <!-- Section 3: Conditionals -->
+        <div id="conditionals" class="section">
+            <h2>3. Conditional Logic (if/else)</h2>
+            <pre><code>secret_number = 5
+guess = int(input("Guess a number: "))
+
+if guess == secret_number:
+    print("You win!")
+else:
+    print("Try again!")</code></pre>
+        </div>
+
+        <!-- Section 4: Loops -->
+        <div id="loops" class="section">
+            <h2>4. While Loops for Multiple Attempts</h2>
+            <pre><code>attempts = 0
+max_attempts = 3
+
+while attempts < max_attempts:
+    # Game logic here
+    attempts += 1</code></pre>
+        </div>
+
+        <!-- Section 5: Random Numbers -->
+        <div id="random" class="section">
+            <h2>5. Generate Random Numbers</h2>
+            <pre><code>import random
+secret_number = random.randint(1, 10)</code></pre>
+        </div>
+
+        <!-- Section 6: Debugging in VS Code -->
+        <div id="debug" class="section">
+            <h2>6. Debugging in VS Code</h2>
+            <ul>
+                <li>Set breakpoints by clicking the gutter next to line numbers.</li>
+                <li>Use the Debug sidebar (Ctrl+Shift+D) to start debugging.</li>
+                <li>Watch variables in real-time!</li>
+            </ul>
+        </div>
+
+        <!-- Section 7: Final Game -->
+        <div id="final" class="section">
+            <h2>7. Complete Game Code</h2>
+            <pre><code>import random
+
+player_name = input("Enter your name: ")
+secret_number = random.randint(1, 10)
+attempts = 0
+max_attempts = 3
+
+print(f"Welcome, {player_name}! You have {max_attempts} attempts.")
+
+while attempts < max_attempts:
+    guess = int(input("Guess (1-10): "))
+    if guess == secret_number:
+        print("You won! 🎉")
+        break
+    elif guess < secret_number:
+        print("Too low!")
+    else:
+        print("Too high!")
+    attempts += 1</code></pre>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
