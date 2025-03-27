@@ -48,16 +48,31 @@
 
         code {
             background: #f8f9fa;
+            color: #333;
             padding: 2px 5px;
             border-radius: 3px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        pre {
+        pre code {
+            display: block;
             background: #1e1e1e;
             color: #d4d4d4;
             padding: 15px;
             border-radius: 5px;
             overflow-x: auto;
+        }
+
+        code.clicked {
+            background: #1e1e1e;
+            color: white;
+            border: 1px solid #1e1e1e;
+        }
+
+        pre code.clicked {
+            background: #333;
+            border: 1px solid #555;
         }
     </style>
 </head>
@@ -98,6 +113,20 @@
 
         <!-- Section 1: VS Code Setup -->
         <div id="setup" class="section">
+            <h2>What is Visual Studio Code</h2>
+            <p>Visual Studio Code (VS Code) is a free, open-source code editor developed by Microsoft. It's lightweight yet powerful, with excellent support for Python and many other programming languages.
+
+                VS Code is popular among developers because it offers:
+                
+                Intelligent Code Completion (IntelliSense)
+                
+                Built-in Debugging
+                
+                Extensions for additional features
+                
+                Git Integration (version control)
+                
+                Terminal Access (run commands without leaving the editor)</p>            
             <h2>1. Install Python & VS Code</h2>
             <h3>Step 1: Install Python</h3>
             <ul>
@@ -188,6 +217,19 @@ while attempts < max_attempts:
     </div>
 
     <script>
+        // Initialize the page with Introduction section visible
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show introduction section by default
+            document.getElementById('intro').classList.add('active');
+            
+            // Set up code click handlers
+            document.querySelectorAll('code').forEach(code => {
+                code.addEventListener('click', function() {
+                    this.classList.toggle('clicked');
+                });
+            });
+        });
+
         function showSection(sectionId) {
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -198,5 +240,4 @@ while attempts < max_attempts:
         }
     </script>
 </body>
-
 </html>
